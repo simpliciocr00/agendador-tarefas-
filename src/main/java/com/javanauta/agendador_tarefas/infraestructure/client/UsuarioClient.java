@@ -1,6 +1,6 @@
 package com.javanauta.agendador_tarefas.infraestructure.client;
 
-import com.javanauta.agendador_tarefas.infraestructure.business.dto.UsuarioDTO;
+import com.javanauta.agendador_tarefas.business.dto.UsuarioDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,4 +13,5 @@ public interface UsuarioClient {
     @GetMapping("/usuario")
     UsuarioDTO buscaUsuarioPorEmail(@RequestParam("email") String email,
                                     @RequestHeader("Authorization") String token);
+
 }

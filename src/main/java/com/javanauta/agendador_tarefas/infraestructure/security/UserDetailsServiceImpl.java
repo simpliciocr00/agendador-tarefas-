@@ -1,7 +1,9 @@
 package com.javanauta.agendador_tarefas.infraestructure.security;
 
-import com.javanauta.agendador_tarefas.infraestructure.business.dto.UsuarioDTO;
+import com.javanauta.agendador_tarefas.business.dto.UsuarioDTO;
 import com.javanauta.agendador_tarefas.infraestructure.client.UsuarioClient;
+import com.javanauta.usuario.infrastructure.entity.Usuario;
+import com.javanauta.usuario.infrastructure.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +18,9 @@ public class UserDetailsServiceImpl {
     private UsuarioClient client;
 
     public UserDetails carregaDadosUsuario(String email, String token){
+
         UsuarioDTO usuarioDTO = client.buscaUsuarioPorEmail(email, token);
+
         return User
                 .withUsername(usuarioDTO.getEmail()) // Define o nome de usuário como o e-mail
                 .password(usuarioDTO.getSenha()) // Define a senha do usuário
