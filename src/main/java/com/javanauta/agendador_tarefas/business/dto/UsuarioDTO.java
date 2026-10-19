@@ -2,8 +2,6 @@ package com.javanauta.agendador_tarefas.business.dto;
 
 import lombok.*;
 
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,5 +12,4 @@ public class UsuarioDTO {
 
     private String email;
     private String senha;
-
 }
